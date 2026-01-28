@@ -1,0 +1,74 @@
+import{J as $,j as e,Q as R,t as j,R as M,S as F}from"./app-DRrHojaG.js";import{a as N,B as l}from"./button-BuJzaNID.js";import{C as d,c as x,F as h,a as b,b as y,d as E}from"./card-DOr82eaN.js";import{B as P}from"./badge-zR9X7Ung.js";import{I as n}from"./icon-9PIIoNm_.js";import{A as I}from"./app-layout-jSz2uPLn.js";import L from"./InvoicePaper-07TjXvfX.js";import{E as f,D as u,v as z,p as B,J as U}from"./jszip.min-8190tTrm.js";import{u as q}from"./useTranslation-DZairWB1.js";import{P as H}from"./plus-B7cQxdFq.js";import{D as J}from"./dollar-sign-QexKFNor.js";import{C as O}from"./calendar-BkU8oDa1.js";import{R as V}from"./receipt-DXEaXDmv.js";import{C as Z,P as g}from"./printer-Bim3U1_k.js";import{U as Q}from"./user-_6XEYKMa.js";import{P as Y,S as W}from"./square-pen-DCU4Wsyc.js";import{C as G}from"./car-BTvP5E4W.js";import{T as K}from"./trash-2-CIaX_W2K.js";/* empty css            */import"./index-DDCA5pFv.js";import"./index-C8Gpbpq8.js";import"./app-logo-icon-B5qPAw4t.js";/**
+ * @license lucide-react v0.475.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const X=[["rect",{width:"20",height:"14",x:"2",y:"5",rx:"2",key:"ynyp8z"}],["line",{x1:"2",x2:"22",y1:"10",y2:"10",key:"1b3vmo"}]],ee=N("CreditCard",X);/**
+ * @license lucide-react v0.475.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const te=[["path",{d:"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4",key:"ih7n3h"}],["polyline",{points:"7 10 12 15 17 10",key:"2ggqvy"}],["line",{x1:"12",x2:"12",y1:"15",y2:"3",key:"1vk2je"}]],se=N("Download",te);/**
+ * @license lucide-react v0.475.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const ae=[["path",{d:"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z",key:"1rqfz7"}],["path",{d:"M14 2v4a2 2 0 0 0 2 2h4",key:"tnqrlb"}],["path",{d:"M8 13h2",key:"yr2amv"}],["path",{d:"M14 13h2",key:"un5t4a"}],["path",{d:"M8 17h2",key:"2yhykz"}],["path",{d:"M14 17h2",key:"10kma7"}]],re=N("FileSpreadsheet",ae);B.vfs=z.vfs;window.JSZip=U;function Ce({invoices:i}){const{t:s}=q(),{app_settings:v,notes:w}=$().props,_=[{title:s("dashboard"),href:"/dashboard"},{title:s("show-invoices"),href:"/show/invoices"}],A=({invoice:t,app_settings:a,notes:r})=>{const c=document.createElement("div");c.className="printable-area",document.body.appendChild(c);const o=M.createRoot(c);o.render(e.jsx(L,{invoice:t,settings:a,notes:r}));const p=`
+          @media print {
+            body * {
+              visibility: hidden;
+            }
+            .printable-area, .printable-area * {
+              visibility: visible;
+            }
+            .printable-area {
+              position: absolute;
+              left: 0;
+              top: 0;
+            }
+            @page {
+              margin: 20px;
+            }
+            .no-print {
+              display: none !important;
+            }
+              .bg-gray-200 {
+                background-color: #d3d3d3 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+          }
+        `,m=document.createElement("style");m.innerHTML=p,document.head.appendChild(m),setTimeout(()=>{window.print(),setTimeout(()=>{o.unmount(),document.body.removeChild(c),document.head.removeChild(m)},500)},2e3)},k=t=>{confirm(s("confirm-delete-invoice")||"Are you sure you want to delete this invoice?")&&F.get(route("invoices.delete",t.id))},C=()=>{const t=window.open("","_blank");t&&(t.document.write(`
+                <html>
+                    <head>
+                        <title>Invoices Export</title>
+                        <style>
+                            body { font-family: Arial, sans-serif; }
+                            table { width: 100%; border-collapse: collapse; }
+                            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                            th { background-color: #f2f2f2; }
+                        </style>
+                    </head>
+                    <body>
+                        <h1>Invoices Report</h1>
+                        <table>
+                            <tr>
+                                <th>Invoice Number</th>
+                                <th>Client</th>
+                                <th>Total</th>
+                                <th>Date</th>
+                            </tr>
+                            ${i.map(a=>{var r;return`
+                                <tr>
+                                    <td>${a.invoice_number}</td>
+                                    <td>${((r=a.client)==null?void 0:r.name)||"N/A"}</td>
+                                    <td>${a.total||"N/A"} SAR</td>
+                                    <td>${new Date(a.invoice_date).toLocaleDateString()}</td>
+                                </tr>
+                            `}).join("")}
+                        </table>
+                    </body>
+                </html>
+            `),t.document.close(),t.print())},T=()=>{const t=[["Invoice Number","Client Name","Phone","VAT Number","Payment Type","Total","Date"].join(","),...i.map(o=>{var p;return[o.invoice_number,((p=o.client)==null?void 0:p.name)||"N/A",o.phone||"N/A",o.client_vat_number||"N/A",o.payment_type||"N/A",o.total||"N/A",o.invoice_date].map(m=>`"${m}"`).join(",")})].join(`
+`),a=new Blob([t],{type:"text/csv;charset=utf-8;"}),r=document.createElement("a"),c=URL.createObjectURL(a);r.setAttribute("href",c),r.setAttribute("download","invoices.csv"),r.style.visibility="hidden",document.body.appendChild(r),r.click(),document.body.removeChild(r)},S=()=>{const t=i.map(a=>{var r;return`${a.invoice_number} - ${((r=a.client)==null?void 0:r.name)||"N/A"} - ${a.total||"N/A"} SAR`}).join(`
+`);navigator.clipboard.writeText(t).then(()=>{alert(s("copied-to-clipboard")||"Copied to clipboard!")})},D=t=>!t||!Array.isArray(t)?"N/A":typeof t[0]=="object"?t.map((a,r)=>`${r+1}. ${a.service||a} (${a.price?a.price+" SAR":"N/A"})`).join(", "):t.map((a,r)=>`${r+1}. ${a}`).join(", ");return f.use(u),f.use(u),e.jsxs(I,{breadcrumbs:_,children:[e.jsx(R,{title:s("show-invoices")}),e.jsxs("div",{className:"flex justify-between items-center mb-6 px-6 pt-6",children:[e.jsxs("div",{children:[e.jsx("h1",{className:"text-2xl font-bold text-gray-900 arabic-font",children:s("show-invoices")}),e.jsx("p",{className:"text-gray-600 mt-1 arabic-font",children:s("manage-all-invoices")||"Manage and view all your invoices"})]}),e.jsxs(j,{href:"/invoice/create",className:"flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors arabic-font",children:[e.jsx(n,{iconNode:H,className:"h-4 w-4"}),s("create-invoice")]})]}),e.jsxs("div",{className:"grid grid-cols-1 md:grid-cols-4 gap-4 px-6 mb-6",children:[e.jsx(d,{children:e.jsx(x,{className:"p-4",children:e.jsxs("div",{className:"flex items-center justify-between",children:[e.jsxs("div",{children:[e.jsx("p",{className:"text-sm text-gray-600 arabic-font",children:s("total-invoices")}),e.jsx("p",{className:"text-2xl font-bold",children:i.length})]}),e.jsx(n,{iconNode:h,className:"h-8 w-8 text-blue-600"})]})})}),e.jsx(d,{children:e.jsx(x,{className:"p-4",children:e.jsxs("div",{className:"flex items-center justify-between",children:[e.jsxs("div",{children:[e.jsx("p",{className:"text-sm text-gray-600 arabic-font",children:s("total-revenue")}),e.jsxs("p",{className:"text-2xl font-bold",children:[i.reduce((t,a)=>t+(parseFloat(a.total)||0),0).toFixed(2)," SAR"]})]}),e.jsx(n,{iconNode:J,className:"h-8 w-8 text-green-600"})]})})}),e.jsx(d,{children:e.jsx(x,{className:"p-4",children:e.jsxs("div",{className:"flex items-center justify-between",children:[e.jsxs("div",{children:[e.jsx("p",{className:"text-sm text-gray-600 arabic-font",children:s("this-month")}),e.jsx("p",{className:"text-2xl font-bold",children:i.filter(t=>{const a=new Date(t.invoice_date),r=new Date;return a.getMonth()===r.getMonth()&&a.getFullYear()===r.getFullYear()}).length})]}),e.jsx(n,{iconNode:O,className:"h-8 w-8 text-purple-600"})]})})}),e.jsx(d,{children:e.jsx(x,{className:"p-4",children:e.jsxs("div",{className:"flex items-center justify-between",children:[e.jsxs("div",{children:[e.jsx("p",{className:"text-sm text-gray-600 arabic-font",children:s("avg-invoice-value")}),e.jsxs("p",{className:"text-2xl font-bold",children:[i.length>0?(i.reduce((t,a)=>t+(parseFloat(a.total)||0),0)/i.length).toFixed(2):"0.00"," SAR"]})]}),e.jsx(n,{iconNode:V,className:"h-8 w-8 text-orange-600"})]})})})]}),e.jsxs(d,{className:"mx-6 mb-6",children:[e.jsxs(b,{children:[e.jsxs(y,{className:"flex items-center gap-2 arabic-font",children:[e.jsx(n,{iconNode:se,className:"h-5 w-5"}),s("export-options")]}),e.jsx(E,{className:"arabic-font",children:s("export-options-description")||"Export your invoice data in various formats"})]}),e.jsx(x,{children:e.jsxs("div",{className:"flex flex-wrap gap-3",children:[e.jsxs(l,{onClick:S,variant:"outline",className:"flex items-center gap-2 arabic-font",children:[e.jsx(n,{iconNode:Z,className:"h-4 w-4"}),s("copy")]}),e.jsxs(l,{onClick:T,variant:"outline",className:"flex items-center gap-2 arabic-font",children:[e.jsx(n,{iconNode:re,className:"h-4 w-4"}),s("export-to-excel")]}),e.jsxs(l,{onClick:C,variant:"outline",className:"flex items-center gap-2 arabic-font",children:[e.jsx(n,{iconNode:h,className:"h-4 w-4"}),s("export-to-pdf")]}),e.jsxs(l,{onClick:()=>window.print(),variant:"outline",className:"flex items-center gap-2 arabic-font",children:[e.jsx(n,{iconNode:g,className:"h-4 w-4"}),s("print")]})]})})]}),e.jsxs(d,{className:"mx-6 mb-6",children:[e.jsx(b,{children:e.jsxs(y,{className:"flex items-center gap-2 arabic-font",children:[e.jsx(n,{iconNode:h,className:"h-5 w-5"}),s("invoices-list")]})}),e.jsx(x,{children:e.jsx("div",{className:"overflow-x-auto",children:e.jsxs(f,{className:"w-full",options:{dom:"frtip",responsive:!0,pageLength:25,order:[[0,"desc"]],language:{search:s("search")+":",searchPlaceholder:s("search-invoices")||"Search invoices...",lengthMenu:s("show")+" _MENU_ "+s("entries"),info:s("showing")+" _START_ "+s("to")+" _END_ "+s("of")+" _TOTAL_ "+s("entries"),paginate:{first:s("first"),last:s("last"),next:s("next"),previous:s("previous")}}},children:[e.jsx("thead",{children:e.jsxs("tr",{className:"bg-gray-50",children:[e.jsx("th",{className:"px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider arabic-font",children:s("invoice-number")}),e.jsx("th",{className:"px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider arabic-font",children:s("client-information-column")}),e.jsx("th",{className:"px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider arabic-font",children:s("payment-details")}),e.jsx("th",{className:"px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider arabic-font",children:s("services")}),e.jsx("th",{className:"px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider arabic-font",children:s("vehicle-info")}),e.jsx("th",{className:"px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider arabic-font",children:s("total")}),e.jsx("th",{className:"px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider arabic-font",children:s("actions")})]})}),e.jsx("tbody",{className:"bg-white divide-y divide-gray-200",children:i.map(t=>{var a;return e.jsxs("tr",{className:"hover:bg-gray-50",children:[e.jsxs("td",{className:"px-4 py-4 whitespace-nowrap",children:[e.jsx("div",{className:"text-sm font-medium text-gray-900 arabic-font",children:t.invoice_number}),e.jsx("div",{className:"text-sm text-gray-500 arabic-font",children:new Date(t.invoice_date).toLocaleDateString()})]}),e.jsx("td",{className:"px-4 py-4",children:e.jsxs("div",{className:"flex items-center",children:[e.jsx(n,{iconNode:Q,className:"h-4 w-4 text-gray-400 mr-2"}),e.jsxs("div",{children:[e.jsx("div",{className:"text-sm font-medium text-gray-900 arabic-font",children:((a=t.client)==null?void 0:a.name)||"N/A"}),e.jsxs("div",{className:"text-sm text-gray-500 arabic-font flex items-center",children:[e.jsx(n,{iconNode:Y,className:"h-3 w-3 mr-1"}),t.phone||"N/A"]}),t.client_vat_number&&e.jsxs("div",{className:"text-xs text-gray-400 arabic-font",children:["VAT: ",t.client_vat_number]})]})]})}),e.jsx("td",{className:"px-4 py-4",children:e.jsxs("div",{className:"space-y-1",children:[e.jsxs(P,{variant:"outline",className:"text-xs arabic-font",children:[e.jsx(n,{iconNode:ee,className:"h-3 w-3 mr-1"}),t.payment_type||"N/A"]}),e.jsx("div",{className:"text-xs text-gray-500 arabic-font",children:t.invoice_type||"N/A"})]})}),e.jsx("td",{className:"px-4 py-4",children:e.jsx("div",{className:"text-sm text-gray-900 arabic-font max-w-xs",children:D(t.service)})}),e.jsx("td",{className:"px-4 py-4",children:t.car_no||t.car_type?e.jsxs("div",{className:"flex items-center text-sm text-gray-900 arabic-font",children:[e.jsx(n,{iconNode:G,className:"h-4 w-4 text-gray-400 mr-2"}),e.jsxs("div",{children:[e.jsx("div",{children:t.car_no||"N/A"}),e.jsx("div",{className:"text-xs text-gray-500",children:t.car_type||"N/A"})]})]}):e.jsx("span",{className:"text-sm text-gray-400 arabic-font",children:"N/A"})}),e.jsxs("td",{className:"px-4 py-4 whitespace-nowrap",children:[e.jsx("div",{className:"text-sm font-medium text-gray-900 arabic-font",children:t.total?`${parseFloat(t.total).toFixed(2)} SAR`:"N/A"}),t.percent&&e.jsxs("div",{className:"text-xs text-gray-500 arabic-font",children:[t.percent,"%"]})]}),e.jsx("td",{className:"px-4 py-4 whitespace-nowrap",children:e.jsxs("div",{className:"flex items-center space-x-2",children:[e.jsxs(l,{size:"sm",variant:"outline",onClick:()=>A({invoice:t,app_settings:v,notes:w}),className:"flex items-center gap-1",children:[e.jsx(n,{iconNode:g,className:"h-3 w-3"}),e.jsx("span",{className:"sr-only",children:s("print")})]}),e.jsxs(j,{href:route("invoices.edit",t.id),className:"inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-8 w-8",children:[e.jsx(n,{iconNode:W,className:"h-3 w-3"}),e.jsx("span",{className:"sr-only",children:s("edit")})]}),e.jsxs(l,{size:"sm",variant:"outline",onClick:()=>k(t),className:"flex items-center gap-1 text-red-600 hover:text-red-700 hover:border-red-300",children:[e.jsx(n,{iconNode:K,className:"h-3 w-3"}),e.jsx("span",{className:"sr-only",children:s("delete")})]})]})})]},t.id)})})]})})})]})]})}export{Ce as default};

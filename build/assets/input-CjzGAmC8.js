@@ -1,0 +1,1 @@
+import{j as a}from"./app-DRrHojaG.js";import{u as o}from"./useTranslation-DZairWB1.js";function l({className:s,type:t,...r}){const{t:u,i18n:n}=o();return a.jsx("input",{type:t,"data-slot":"input",className:`input input-neutral h-12 border focus:border-orange-600 focus:outline-0 w-full ${n.language==="ar"?"text-right rtl":"text-left"} `,...r})}export{l as I};
